@@ -275,7 +275,7 @@ def start():
             line = process.stdout.readline()
             if line == "":
                 break
-            print_info(f"[Zerotier] {line.rstrip()}")
+            print_info(f"[ZeroTier] {line.rstrip()}")
     finally:
         process.terminate()
         print_info("Waiting daemon to quit...")
