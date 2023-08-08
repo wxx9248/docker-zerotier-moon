@@ -26,7 +26,7 @@
 
 ## Usage
 ```
-Usage: docker run [DOCKER_OPTIONS] ghcr.io/wxx9248/zerotier-moon [OPTIONS]...
+Usage: docker run [DOCKER_OPTIONS] ghcr.io/wxx9248/zerotier-moon:master [OPTIONS]...
 Available options:
     -h, --help
         Display help text
@@ -60,7 +60,7 @@ Optional environment variables:
 ## Quick Start (from rwv's repo)
 ### Start a container
 ```
-docker run --name zerotier-moon -d --restart always -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one ghcr.io/wxx9248/zerotier-moon -4 1.2.3.4
+docker run --name zerotier-moon -d --restart always -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one ghcr.io/wxx9248/zerotier-moon:master -4 1.2.3.4
 ```
 Replace `1.2.3.4` with your moon's IPv4 address and replace `~/somewhere` with where you would like to store your configuration.
 
@@ -75,7 +75,7 @@ docker logs zerotier-moon
 ``` YAML
 services:
   zerotier-moon:
-    image: ghcr.io/wxx9248/zerotier-moon
+    image: ghcr.io/wxx9248/zerotier-moon:master
     container_name: "zerotier-moon"
     restart: always
     ports:
@@ -99,20 +99,20 @@ docker exec zerotier-moon zerotier-cli
 
 ### Mount ZeroTier conf folder
 ```
-docker run --name zerotier-moon -d -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one ghcr.io/wxx9248/zerotier-moon -4 1.2.3.4
+docker run --name zerotier-moon -d -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one ghcr.io/wxx9248/zerotier-moon:master -4 1.2.3.4
 ```
 When creating a new container without mounting ZeroTier conf folder, a new moon ID will be generated.
 This command will mount `~/somewhere` to `/var/lib/zerotier-one` inside the container, allowing your ZeroTier moon to presist the same moon ID. If you don't do this, when you start a new container, a new moon ID will be generated.
 
 ### IPv6 support
 ```
-docker run --name zerotier-moon -d -p 9993:9993/udp ghcr.io/wxx9248/zerotier-moon -4 1.2.3.4 -6 2001:abcd:abcd::1
+docker run --name zerotier-moon -d -p 9993:9993/udp ghcr.io/wxx9248/zerotier-moon:master -4 1.2.3.4 -6 2001:abcd:abcd::1
 ```
 Replace `1.2.3.4`, `2001:abcd:abcd::1` with your moon's IP. You can remove `-4` option in pure IPv6 environment.
 
 ### Custom port
 ```
-docker run --name zerotier-moon -d -p 9994:9993/udp ghcr.io/wxx9248/zerotier-moon -4 1.2.3.4 -p 9994
+docker run --name zerotier-moon -d -p 9994:9993/udp ghcr.io/wxx9248/zerotier-moon:master -4 1.2.3.4 -p 9994
 ```
 Replace 9994 with your own custom port for ZeroTier moon.
 
@@ -120,7 +120,7 @@ Replace 9994 with your own custom port for ZeroTier moon.
 If you encounter issue: `ERROR: unable to configure virtual network port: could not open TUN/TAP device: No such file or directory`, please add `--cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun` args. Similar to this:
 
 ```
-docker run --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --name zerotier-moon -d --restart always -p 9993:9993/udp ghcr.io/wxx9248/zerotier-moon -4 1.2.3.4
+docker run --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --name zerotier-moon -d --restart always -p 9993:9993/udp ghcr.io/wxx9248/zerotier-moon:master -4 1.2.3.4
 ```
 Solution provided by [Jonnyan404's Fork](https://github.com/Jonnyan404/docker-zerotier-moon).
 See Also [Issue #1](https://github.com/rwv/docker-zerotier-moon/issues/1).
