@@ -126,4 +126,4 @@ Solution provided by [Jonnyan404's Fork](https://github.com/Jonnyan404/docker-ze
 See Also [Issue #1](https://github.com/rwv/docker-zerotier-moon/issues/1).
 
 ### Multi-arch support
-This image supports `linux/amd64`, `linux/386`, `linux/arm64`, `linux/arm/v5`, `linux/arm/v7`, `linux/ppc64le`, `linux/s390x` and `linux/mips64le`.
+This image supports `linux/amd64`, `linux/386`, `linux/arm64`, `linux/arm/v7`, `linux/ppc64le`, `linux/s390x` and `linux/mips64le`.
