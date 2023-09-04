@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checking Out Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Docker Set up QEMU
       uses: docker/setup-qemu-action@v2.2.0
