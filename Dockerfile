@@ -1,4 +1,4 @@
-FROM zerotier/zerotier:1.14.0
+FROM zerotier/zerotier:1.14.1
 
 LABEL maintainer="wxx9248 <wxx9248@wxx9248.top>"
 
